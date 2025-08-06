@@ -84,7 +84,13 @@ def split_audio(file_path: str, chunk_length_min: int = 45) -> list[str]:
         raise FileNotFoundError(f"Audio file not found: {file_path}")
 
     logging.info(f"Loading audio file: {file_path}")
-    audio = AudioSegment.from_file(file_path)
+    try:
+        audio = AudioSegment.from_file(file_path)
+        logging.info(f"Loaded audio of duration {len(audio)/1000:.2f}s")
+    except Exception as e:
+        logging.error(f"Failed to load audio file: {e}")
+        raise
+
     chunk_length_ms = chunk_length_min * 60 * 1000
     
     chunks = []

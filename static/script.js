@@ -27,13 +27,14 @@ document.getElementById("uploadForm").addEventListener("submit", async function(
         }
 
         const data = await response.json();
+        window.alert(JSON.stringify(data));
 
-        document.getElementById("transcript").innerHTML = marked.parse(data.transcript_text || "No transcript returned.");
+        // document.getElementById("transcript").innerHTML = marked.parse(data.transcript_text || "No transcript returned.");
 
-        document.getElementById("summary").innerHTML = marked.parse(data.summary_text || "No summary returned.");
+        // document.getElementById("summary").innerHTML = marked.parse(data.summary_text || "No summary returned.");
 
-        document.getElementById("downloadTranscript").href = data.download_links.transcript;
-        document.getElementById("downloadSummary").href = data.download_links.summary;
+        // document.getElementById("downloadTranscript").href = data.download_links.transcript;
+        // document.getElementById("downloadSummary").href = data.download_links.summary;
 
         document.getElementById("loading").classList.add("hidden");
         document.getElementById("results").classList.remove("hidden");
