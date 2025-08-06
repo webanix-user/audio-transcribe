@@ -106,3 +106,8 @@ venv.bak/
 
 # Mac OS
 .DS_Store
+
+.env
+audiofiles/
+transcriptions/
+transcript/
